@@ -1,8 +1,7 @@
-FROM sqeven/wine-box:latest
+FROM sqeven/wechat-box:latest
 COPY target/root/ /
 # init target with GUI
-RUN bash -c 'nohup /entrypoint.sh 2>&1 &' && sleep 5 && /payloads.sh \
-    && sudo cp -r /wechat-etc/* /etc/
+RUN bash -c 'nohup /entrypoint.sh 2>&1 &' && sleep 5 && /payloads.sh 
 # clear payloads
 RUN sudo rm -r /payloads
 COPY root/ /
